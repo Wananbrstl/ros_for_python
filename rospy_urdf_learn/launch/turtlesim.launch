@@ -1,0 +1,11 @@
+<!--用于launch的一些操作-->
+<launch>
+    <group ns= "first">
+        <node pkg="turtlesim"  type="turtlesim_node" name="turtle1" />
+        <node pkg= "turtlesim" type="turtle_teleop_key" name="turtle_key"/>
+    </group>
+    <group ns= "second">
+        <node pkg="turtlesim" type="turtlesim_node" name="turtle1"/>
+        <node pkg="turtlesim" type="turtle_teleop_key" name="turtle_key"/>
+    </group>
+</launch>
