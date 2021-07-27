@@ -1,0 +1,8 @@
+prefix=/home/lbn/ws/ws_python_learn/install
+
+Name: ros_python_learn
+Description: Description of ros_python_learn
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

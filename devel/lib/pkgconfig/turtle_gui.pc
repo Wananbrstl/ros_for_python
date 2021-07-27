@@ -1,0 +1,8 @@
+prefix=/home/lbn/ws/ws_python_learn/devel
+
+Name: turtle_gui
+Description: Description of turtle_gui
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

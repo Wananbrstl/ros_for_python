@@ -1,0 +1,8 @@
+prefix=/home/lbn/ws/ws_python_learn/install
+
+Name: lcd_monitor
+Description: Description of lcd_monitor
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

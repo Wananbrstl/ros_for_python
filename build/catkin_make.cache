@@ -1,0 +1,2 @@
+ros_python_learn:rospy_msgs:rospy_service:rospy_tf:rospy_topic:rospy_turtle:rospy_urdf_learn:turtle_gui
+-DCATKIN_DEVEL_PREFIX=/home/lbn/ws/ws_python_learn/devel -DCMAKE_INSTALL_PREFIX=/home/lbn/ws/ws_python_learn/install -G Unix Makefiles

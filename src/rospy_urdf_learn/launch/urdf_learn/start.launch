@@ -1,0 +1,7 @@
+<?xml version='1.0'?>
+<launch>
+    <!--参数服务器载入urdf-->
+    <param name = 'robot_description' textfile = '$(find rospy_urdf_learn)/urdf/urdf_learn/demo.urdf'/>
+    <!--其中rviz-->
+    <node pkg = 'rviz' type = 'rviz' name = 'rviz' required = 'true'/>
+</launch>

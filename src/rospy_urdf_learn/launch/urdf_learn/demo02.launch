@@ -1,0 +1,6 @@
+<launch>
+	<param name = 'robot_description' textfile = "$(find rospy_urdf_learn)/urdf/urdf_learn/demo01.urdf" />
+	<node pkg = 'rviz' type = 'rviz' name = 'rviz' required = 'true'/>
+	<node pkg = "joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />	
+	<node pkg = "robot_state_publisher" type = "robot_state_publisher" name = "robot_state_publisher"/>
+</launch>

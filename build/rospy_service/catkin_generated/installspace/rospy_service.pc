@@ -1,0 +1,8 @@
+prefix=/home/lbn/ws/ws_python_learn/install
+
+Name: rospy_service
+Description: Description of rospy_service
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

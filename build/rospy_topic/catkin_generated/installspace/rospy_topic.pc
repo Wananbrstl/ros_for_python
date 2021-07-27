@@ -1,0 +1,8 @@
+prefix=/home/lbn/ws/ws_python_learn/install
+
+Name: rospy_topic
+Description: Description of rospy_topic
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
