@@ -1,0 +1,10 @@
+<launch>
+
+	<arg name = "gui" default = "True" />
+	<param name = 'robot_description' textfile = "$(find rospy_urdf_learn)/urdf/xacro/car_xacro.urdf" />
+	<node pkg = 'rviz' type = 'rviz' name = 'rviz' required = 'true' 
+	args = "-d $(find rospy_urdf_learn)/config/robot.rviz" />
+	<node pkg = "joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />	
+	<node pkg = "robot_state_publisher" type = "robot_state_publisher" name = "robot_state_publisher"/>
+	<node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" />
+</launch>

@@ -1,0 +1,23 @@
+<?xml version = "1.0" ?>
+<robot name = "car_xacro" xmlns:xacro = "http://wiki.ros.org/xacro" >
+    <!--导入操作-->
+    <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/car_wheel.xacro" />
+    <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/car_base.xacro" />
+    <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/car_joint.xacro" />
+    <!--参数-->
+    <xacro:car_base name = "base"/>
+    <xacro:car_wheel name = "left_wheel" radius = "0.0325" length = "0.015" />
+    <xacro:car_continuous_joint name = "left2base" 
+    parent = "base" child = "left_wheel"
+    x = "0" y = "0.1" z = "-0.0225" 
+    r = "1.57" p = "0" py = "0"
+    rx = "0" ry = "0" rz = "1"
+    />
+    <xacro:car_wheel name = "right_wheel" radius = "0.0325" length = "0.015" />
+    <xacro:car_continuous_joint name = "right2base"
+    parent = "base" child = "right_wheel" 
+    x = "0" y = "-0.1" z = "-0.0225" 
+    r = "1.57" p = "0" py = "0"
+    rx = "0" ry = "0" rz = "1"
+    />
+</robot>

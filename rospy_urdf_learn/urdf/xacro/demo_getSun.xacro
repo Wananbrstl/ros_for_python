@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<robot name="mycar" xmlns:xacro="http://wiki.ros.org/xacro"> 
+    <!--宏的定义-->
+    <xacro:macro name = "getSum" params = "num1 num2">
+        <getSum value = "${num1 + num2}" />
+    </xacro:macro>
+    <!--宏的使用-->
+    <xacro:getSum num1 = "1" num2 = "2" />
+    <!--通过rosrun xacro xacro demo_getSum.xacro查看结果-->
+</robot>

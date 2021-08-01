@@ -1,0 +1,27 @@
+<?xml version = "1.0"?>
+<robot name="car_base" xmlns:xacro="http://wiki.ros.org/xacro">   
+    <xacro:macro name = "car_base"  params = "name">
+            <link name = "base_footprint" >
+        <visual>
+            <geometry>
+                <sphere radius = "0.001" />
+                <origin xyz = "0 0 0" rpy = "0 0 0" />
+            </geometry>
+        </visual>
+    </link>
+    <link name = "${name}">
+        <visual>
+            <geometry>
+                <cylinder radius = "0.1" length = "0.08" />
+                <origin xyz = "0 0 0" rpy = "0 0 0" />
+            </geometry>
+        </visual>
+    </link>
+    <joint name = "link2footprint" type = "fixed">
+        <parent link = "base_footprint" />
+        <child link = "base" />
+        <origin xyz = "0 0 0.055" rpy = "0 0 0" />
+    </joint> 
+
+    </xacro:macro>
+</robot>

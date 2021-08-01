@@ -1,0 +1,27 @@
+<robot name = 'my_robot'>
+    <!--连杆-->
+    <link name = 'base_link'>
+        <visual>
+            <geometry>
+                <cylinder radius = '0.03' length = '0.05' />
+                <origin xyz = '0 -0.03 0' rpy = '0 0 0' />
+            </geometry>
+        </visual>
+    </link>
+
+    <!-- 连杆2 -->
+    <link name = "link1">
+        <visual>
+            <geometry>
+                <cylinder radius = "0.04" length = "0.01" />
+                <origin xyz = "0 0 0" rpy = "0 0 0" />
+            </geometry>
+        </visual>
+    </link>
+    <!-- joint1: fixed -->
+    <joint name = "baseLink_to_link1" type = "fixed">
+        <parent link = "base_link" />
+        <child link = "link1" />
+        <origin xyz = "0 -0.005 0" rpy = "0 0 0" />
+    </joint>
+</robot>

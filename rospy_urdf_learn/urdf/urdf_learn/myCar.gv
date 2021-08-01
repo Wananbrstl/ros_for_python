@@ -1,0 +1,20 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base" [label="base"];
+"uni_wheel" [label="uni_wheel"];
+"uni_wheel2" [label="uni_wheel2"];
+"left_wheel" [label="left_wheel"];
+"right_wheel" [label="right_wheel"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "link2footprint" [label="xyz: 0 0 0.055 \nrpy: 0 -0 0"]
+"link2footprint" -> "base"
+"base" -> "basetowanxiang" [label="xyz: 0.08 0 -0.0475 \nrpy: 0 -0 0"]
+"basetowanxiang" -> "uni_wheel"
+"base" -> "basetowanxiang2" [label="xyz: -0.08 0 -0.0475 \nrpy: 0 -0 0"]
+"basetowanxiang2" -> "uni_wheel2"
+"base" -> "left2base" [label="xyz: 0 0.1 -0.0225 \nrpy: 1.5708 -0 0"]
+"left2base" -> "left_wheel"
+"base" -> "right2base" [label="xyz: 0 -0.1 -0.0225 \nrpy: 1.5708 -0 0"]
+"right2base" -> "right_wheel"
+}
