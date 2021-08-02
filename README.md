@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ROS总结
 一些ROS资料:
 - [B站赵虚左教程](http://www.autolabor.com.cn/book/ROSTutorials/)
@@ -146,6 +145,3 @@ Xacro中是可以进行文件包含的，其使用的语法为:
 通过`rosrun xacro xacro xxx.xacro`
 - 应当在xacro文件下面进行操作
 -  `rosrun xacro xacro xxx.xacro > xxx.urdf`
-=======
-# ROS FOR PYTHON
->>>>>>> 576f30823b80b76f200aba411abc8bab933dc382
