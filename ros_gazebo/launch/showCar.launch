@@ -1,0 +1,8 @@
+<launch>
+    <!--参数服务器加载机器人模型(由于是xacro文件类型，所以需要调用命令去解析)-->
+    <param name = "robot_description" command = "$(find xacro)/xacro $(find ros_gazebo)/xacro/car.xacro  " />
+    <!--gazeo的环境搭建-->
+    <include file = "$(find gazebo_ros)/launch/empty_world.launch"/>
+    <!--将参数服务器上面的urdf集成到gazebo中(运行gazebo中的spawn_model节点)-->
+    <node pkg = "gazebo_ros" name = "spawn_model" type = "spawn_model"  args= "-urdf -model car -param robot_description" />
+</launch>

@@ -4,6 +4,9 @@
     <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/car_wheel.xacro" />
     <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/car_base.xacro" />
     <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/car_joint.xacro" />
+    <!--包含摄像头和激光雷达xacro文件-->
+    <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/camera.xacro" />
+    <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/laser.xacro" />
     <!--参数-->
     <xacro:car_base name = "base"/>
     <xacro:car_wheel name = "left_wheel" radius = "0.0325" length = "0.015" />

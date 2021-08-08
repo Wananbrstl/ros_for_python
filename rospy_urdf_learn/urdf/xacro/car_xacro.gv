@@ -1,0 +1,17 @@
+digraph G {
+node [shape=box];
+"base_footprint" [label="base_footprint"];
+"base" [label="base"];
+"camera" [label="camera"];
+"left_wheel" [label="left_wheel"];
+"right_wheel" [label="right_wheel"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_footprint" -> "link2footprint" [label="xyz: 0 0 0.055 \nrpy: 0 -0 0"]
+"link2footprint" -> "base"
+"base" -> "camera2base" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"camera2base" -> "camera"
+"base" -> "left2base" [label="xyz: 0 0.1 -0.0225 \nrpy: 1.57 -0 0"]
+"left2base" -> "left_wheel"
+"base" -> "right2base" [label="xyz: 0 -0.1 -0.0225 \nrpy: 1.57 -0 0"]
+"right2base" -> "right_wheel"
+}

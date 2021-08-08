@@ -1,0 +1,59 @@
+<?xml version = "1.0"?>
+<!--用于创建一个激光雷达-->
+<robot name = "laser" xmlns:xacro = "http://wiki.ros.org/xacro">
+<!--参数设置-->
+    <xacro:property name = "laserRadius" value = "0.03" />
+    <xacro:property name = "laserLength" value = "0.05" />
+    <xacro:property name = "supportRadius" value = "0.01" />
+    <xacro:property name = "supportLength" value = "0.15" />
+
+    <xacro:property name = "laserJointX" value = "0" />
+    <xacro:property name = "laserJointY" value = "0" />
+    <xacro:property name = "laserJointZ" value = "${0.055/2 + supportLength + laserLength/2}" />
+    <xacro:property name = "supportJointX" value = "0" /> 
+    <xacro:property name = "supportJointY" value = "0" />
+    <xacro:property name = "supportJointZ" value = "${0.055/2 + supportLength/2}" />
+<!--支架的设计-->
+    <link name = "support">
+        <visual>
+            <geometry>  
+                <cylinder radius = "${supportRadius}" length = "${supportLength}" />
+            </geometry>
+            <origin xyz = "0 0 0" rpy = "0 0 0" />
+            <material name = "laserColor" >
+                <color rgba = "0.5 0.5 0.5 0.8" />
+            </material>
+        </visual>
+    </link>
+
+    <joint name = "support" type = "fixed">
+        <parent link = "base" />
+        <child link = "support" />
+        <origin xyz = "${supportJointX} ${supportJointY} ${supportJointZ}" rpy = "0 0 0" />
+    </joint>
+<!--雷达的设计-->
+    <link name = "laser">
+        <visual>
+            <geometry>  
+                <cylinder radius = "${laserRadius}" length = "${laserLength}" />
+            </geometry>
+            <origin xyz = "0 0 0" rpy = "0 0 0" />
+            <material name = "laserColor" >
+                <color rgba = "0 1 0 0.8" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius = "${laserRadius}" length = "${laserLength}" />
+            </geometry>
+        </collision>
+        <xacro:cylinder_inertial_matrix m = "0.5" r = "${laserRadius}" h = "${laserLength}" />
+    </link>
+    <joint name = "laser" type = "fixed">
+        <parent link = "base" />
+        <child link = "laser" />
+        <origin xyz = "${laserJointX} ${laserJointY} ${laserJointZ}" rpy = "0 0 0" />
+    </joint>
+
+</robot>

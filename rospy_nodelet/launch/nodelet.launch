@@ -1,0 +1,11 @@
+<launch>
+    <!--启动nodelet manager-->yy
+    <node pkg = "nodelet" name = "dasun" type = "nodelet" args = "manager" /> 
+    <node pkg = "nodelet" name = "xiaowang" type = "nodelet" args = "load nodelet_tutorial_math/Plus dasun" >
+        <param name = "value" value = "100" />
+    </node>
+    <node pkg = "nodelet" name = "ergou" type = "nodelet" args = "load nodelet_tutorial_math/Plus dasun" >
+        <param name = "value" value = "-50" />
+        <remap from = "/ergou/in" to = "/xiaowang/out" /> 
+    </node>
+</launch>

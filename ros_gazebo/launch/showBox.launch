@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <!--参数服务器中载入urdf文件-->
+    <param name = "robot_description" textfile = "$(find ros_Gazebo)/urdf/box.urdf" />
+    <!--启动gazebo仿真环境-->
+    <!--node pkg = "" type = "" name = "" output = "screen" /-->
+    <include file = "$(find gazebo_ros)/launch/empty_world.launch" />
+    <!--在gazebo中添加机器人模型-->
+    <node pkg = "gazebo_ros" type = "spawn_model" name = "spawn_model" output = "screen"
+    args = "-urdf -model car -param robot_description" />
+
+
+</launch>

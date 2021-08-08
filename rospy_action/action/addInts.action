@@ -1,0 +1,8 @@
+#goal 
+int32 num
+---
+# result
+int32 result
+---
+# feedback
+float64 propress_bar

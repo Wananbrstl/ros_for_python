@@ -1,0 +1,7 @@
+<library path = "lib/libMyClass">
+    <class type = "nodelet_demo_ns::MyPlus" base_class_type = "nodelet::Nodelet" name = "rospy_nodelet" >
+        <description>
+
+        </description/>
+    </class>
+</library>

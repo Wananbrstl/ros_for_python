@@ -1,0 +1,20 @@
+<?xml version = "1.0"?>
+<robot name="car_wheel" xmlns:xacro="http://wiki.ros.org/xacro"> 
+    <xacro:macro name = "car_wheel" params = "name radius length">
+        <link name = "${name}">
+            <visual>
+                <geometry>
+                    <cylinder radius = "${radius}" length = "${length}" /> 
+                    <orgin xyz = "0 0 0" rpy = "0 0 0" />
+                </geometry>
+            </visual>
+            <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius = "${radius}" length = "${length}" /> 
+            </geometry>
+            </collision>
+            <xacro:cylinder_inertial_matrix m = "3" r = "${radius}" h = "${length}" />
+        </link>
+    </xacro:macro>
+</robot>

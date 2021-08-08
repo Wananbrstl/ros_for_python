@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot name="uniwheel">
+    <xacro:macro params = "name m r">
+        <link name="${name}">
+            <visual>
+                <geometry>
+                    <sphere radius="${r}"/>
+                </geometry>
+                <origin xyz = "0 0 0" rpy = "0 0 0" />
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <sphere radius="${r}"/>
+                </geometry>
+            </collision>
+            <xacro:sphere_inertial_matrx m = "${m}" r = "${r}" />
+        </link>
+        <joint name="${name}_joint" type="continuous">
+            <origin xyz="0.0 0.0 ${raidus/2 + 0.55}" rpy="0.0 0.0 0.0"/>
+            <parent link="base"/>
+            <child link="${name}_joint"/>
+            <axis xyz="0.0 0.0 0.0"/>
+        </joint>
+    </xacro:macro>
+</robot>

@@ -1,0 +1,14 @@
+<?xml version = "1.0"?>
+<robot name = "car_joint" xmlns:xacro = "http://wiki.ros.org/xacro">
+    <xacro:macro name = "car_continuous_joint" params = "name parent child 
+    x y z
+    r p py
+    rx ry rz"> 
+        <joint name = "${name}" type = "continuous" >
+            <parent link = "${parent}" />
+            <child link = "${child}" />
+            <origin xyz = "${x} ${y} ${z}" rpy = "${r} ${p} ${py}" />
+            <axis xyz = "${rx} ${ry} ${rz}" />
+        </joint>
+    </xacro:macro>
+</robot>
