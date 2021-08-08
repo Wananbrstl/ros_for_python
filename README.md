@@ -232,8 +232,71 @@ URDF与Gazebo的集成流程与Rviz相似，都有以下几步：
 ### ros_control简介
 > ros_control:是一组软件包，它包含了控制器接口，控制器管理器，传输和硬件接口。ros_control 是一套机器人控制的中间件，是一套规范，不同的机器人平台只要按照这套规范实现，那么就可以保证 与ROS 程序兼容，通过这套规范，实现了一种可插拔的架构设计，大大提高了程序设计的效率与灵活性。
 gazebo 已经实现了 ros_control 的相关接口，如果需要在 gazebo 中控制机器人运动，直接调用相关接口即可
-### 运动基本流程
-- 创建一个
+
+> 保证了可移植性(依靠接口保证可移植性)！接口思想，可插拔！！
+
+### 运动控制实现流程(Gazebo)
+- 首先，你应该有一个机器人模型文件(urdf,xacro等)，在此基础上，你应该为他们添加传动装置，才能让他么动起来
+- 此外文件将集成进Xacro文件
+- 启动Gazebo并发布/cmd_vel消息控制机器人运动
+
+**第一步： 编辑xacro文件，添加传动装置**
+```
+<robot name="my_car_move" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <!-- 传动实现:用于连接控制器与关节 -->
+    <xacro:macro name="joint_trans" params="joint_name">
+        <!-- Transmission is important to link the joints and the controller -->
+        <transmission name="${joint_name}_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <!-- 每一个驱动轮都需要配置传动装置 -->
+    <xacro:joint_trans joint_name="left_wheel2base_link" />
+    <xacro:joint_trans joint_name="right_wheel2base_link" />
+
+    <!-- 控制器 -->
+    <gazebo>
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+            <rosDebugLevel>Debug</rosDebugLevel>
+            <publishWheelTF>true</publishWheelTF>
+            <robotNamespace>/</robotNamespace>
+            <publishTf>1</publishTf>
+            <publishWheelJointState>true</publishWheelJointState>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>100.0</updateRate>
+            <legacyMode>true</legacyMode>
+            <leftJoint>left_wheel2base_link</leftJoint> <!-- 左轮 -->
+            <rightJoint>right_wheel2base_link</rightJoint> <!-- 右轮 -->
+            <wheelSeparation>${base_link_radius * 2}</wheelSeparation> <!-- 车轮间距 -->
+            <wheelDiameter>${wheel_radius * 2}</wheelDiameter> <!-- 车轮直径 -->
+            <broadcastTF>1</broadcastTF>
+            <wheelTorque>30</wheelTorque>
+            <wheelAcceleration>1.8</wheelAcceleration>
+            <commandTopic>cmd_vel</commandTopic> <!-- 运动控制话题 -->
+            <odometryFrame>odom</odometryFrame> 
+            <odometryTopic>odom</odometryTopic> <!-- 里程计话题 -->
+            <robotBaseFrame>base_footprint</robotBaseFrame> <!-- 根坐标系 -->
+        </plugin>
+    </gazebo>
+</robot>
+```
+
+> 没必要自己写，可以根据内容适当修改，思想就是插件的思想
+
+**第二步： 通过/cmd_vel节点可以控制机器人进行运动**
+`rostopic list`查看是否有`/cmd_vel`消息发布
+
+
+
 
 
 
