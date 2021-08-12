@@ -7,6 +7,7 @@ from rospy_cfg.cfg import drConfig
 
 def cb(drConfig, level):
     rospy.loginfo("解析的参数: %d",drConfig.int_param)
+    rospy.loginfo("解析的参数: %d",drConfig.double_param)
     return drConfig
 
 

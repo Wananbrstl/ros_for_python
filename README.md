@@ -296,7 +296,46 @@ gazebo 已经实现了 ros_control 的相关接口，如果需要在 gazebo 中�
 `rostopic list`查看是否有`/cmd_vel`消息发布
 
 
+**雷达信息仿真以及显示**
+- 插件:
+```
+<robot name="my_sensors" xmlns:xacro="http://wiki.ros.org/xacro">
 
+  <!-- 雷达 -->
+  <gazebo reference="laser">
+    <sensor type="ray" name="rplidar">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>5.5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-3</min_angle>
+            <max_angle>3</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_rplidar" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+</robot>
+```
 
 
 
@@ -354,6 +393,20 @@ float64 progress_bar
 **一个案例**
 动态修改参数，服务端可以解析参数
 
+关键步骤：
+- 1. 首先你需要创建一个cfg文件夹，并且在cfg文件夹中创建用于生成<font color = red>动态参数</font>的cfg文件
+    - 关键的几个代码
+    - `gen = ParameterGeneration()`
+    - `gen.add(Name, Type, Level, Description, Default, mininum, maxinum)`
+    - `exit(gen.exit(Package, str, str))`
+- 2. 然后，你需要配置CMakeList.txt文件，配置生成动态参数。
+- 3. 最后，在客户端中获取
+    - 头文件需要`#include<dynamic_reconfigure/server>`服务端
+    - 通过回调函数实现`dynamic_reconfigure::Server<Type> server`
+    - 然后指定回调函数的类型 `dynamic_reconfigure::Server<Type>::callBackType cbtype`
+    - 然后设置绑定`cbtype = boost::bind(&callback, _1, _2)`//后面两个是占位符
+        - boost::bind是标准库函数std::bind1st和std::bind2nd的一种泛化形式。其可以支持函数对象、函数、函数指针、成员函数指针，并且绑定任意参数到某个指定值上或者将输入参数传入任意位置。
+    - 最后，在回调函数中读取数据并且处理
 
 ## Pluginlib
 ### 应用场景

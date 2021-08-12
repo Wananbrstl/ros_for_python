@@ -34,6 +34,8 @@
     <xacro:joint_trans joint_name = "left2base" />
     <xacro:joint_trans joint_name = "right2base" />
     <!--导入雷达相关信息-->
-    <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/leida.xacro" />
-
+    <!--xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/leida.xacro" />
+        -->
+    <!--摄像头文件-->
+    <xacro:include filename = "$(find rospy_urdf_learn)/urdf/xacro/gazebo/camaera.xacro" /> 
 </robot>

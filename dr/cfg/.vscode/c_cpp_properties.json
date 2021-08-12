@@ -1,0 +1,42 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/lbn/桌面/quadruped/quadruped_ros/devel/include/**",
+        "/home/lbn/ws/ws_python_learn/devel/include/**",
+        "/home/lbn/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/lbn/桌面/quadruped/quadruped_ros/src/action_test/include/**",
+        "/home/lbn/桌面/quadruped/quadruped_ros/src/champ/champ/include/**",
+        "/home/lbn/桌面/quadruped/quadruped_ros/src/champ/champ_base/include/**",
+        "/home/lbn/桌面/quadruped/quadruped_ros/src/champ/champ_config/include/**",
+        "/home/lbn/ws/ws_python_learn/src/dr/include/**",
+        "/home/lbn/桌面/quadruped/quadruped_ros/src/gazebo_plugin_tutorial/include/**",
+        "/home/lbn/catkin_ws/src/paraservice/include/**",
+        "/home/lbn/桌面/quadruped/quadruped_ros/src/pluginlib_test/include/**",
+        "/home/lbn/ws/ws_python_learn/src/ros_gazebo/include/**",
+        "/home/lbn/ws/ws_python_learn/src/rospy_action/include/**",
+        "/home/lbn/ws/ws_python_learn/src/rospy_cfg/include/**",
+        "/home/lbn/ws/ws_python_learn/src/rospy_nodelet/include/**",
+        "/home/lbn/ws/ws_python_learn/src/rospy_plugin/include/**",
+        "/home/lbn/ws/ws_python_learn/src/rospy_service/include/**",
+        "/home/lbn/ws/ws_python_learn/src/rospy_topic/include/**",
+        "/home/lbn/ws/ws_python_learn/src/rospy_urdf_learn/include/**",
+        "/home/lbn/catkin_ws/src/service/include/**",
+        "/home/lbn/catkin_ws/src/test_tf/include/**",
+        "/home/lbn/catkin_ws/src/test_topic/include/**",
+        "/home/lbn/catkin_ws/src/test_urdf/include/**",
+        "/home/lbn/ws/ws_python_learn/src/turtle_gui/include/**",
+        "/home/lbn/catkin_ws/src/turtle_tf/include/**",
+        "/home/lbn/桌面/quadruped/quadruped_ros/src/yocs_velocity_smoother/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
