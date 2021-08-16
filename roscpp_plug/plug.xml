@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<library path = "lib/libpolygon_plugins">
+    <class type = "plugins::Triangle" base_class_type = "polygon_base::RegularPolygon">
+        <description>This is a plugin of Triangle</description>
+    </class>    
+
+    <class type = "plugins::Square" base_class_type = "polygon_base::RegularPolygon">
+        <description>This is a plugin of Square</description>
+    </class>    
+    
+    <export>
+        <roscpp_plug plugin = "${prefix}/plug.xml">
+    </export>
+</library>
