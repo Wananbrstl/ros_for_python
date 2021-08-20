@@ -2,5 +2,6 @@
 <launch>
     <node pkg = "turtlesim" type = "turtlesim_node" name = "turtle1" /> 
     <node pkg = "turtlesim" type = "turtle_teleop_key" name = "tepe" />
-    
+    <!-- <node pkg = "roscpp_turtle_tf" type = "turtle_pose_sub"  name = "tf_pub" output = "screen" args = "turtle1" /> -->
+    <!-- <node pkg = "roscpp_turtle_tf" type = "turtle_pose_sub"  name = "tf_pub" output = "screen" ns = "turtle2" args = "turtle2" /> -->
 </launch>

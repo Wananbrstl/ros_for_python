@@ -6,6 +6,12 @@
 #include"tf2/LinearMath/Quaternion.h"
 // 如果只是静态发布 则只用发布一次消息， 这个时候采用 static_transform_broadcasterster
 #include"tf2_ros/static_transform_broadcaster.h"
+/*
+    传入 turtleName 通过订阅 /turtleName/pose 信息 
+    转化成坐标转化信息， 发布
+*/
+
+
 
 static std::string turtleName;
 
@@ -40,7 +46,7 @@ int main(int argc, char *argv[])
 {
     setlocale(LC_ALL, "");
     // 解析turtleName
-    if (argc != 2) ROS_ERROR("需要一个string参数");
+    if (argc != 3) ROS_ERROR("需要一个string参数");
     turtleName = argv[1];
     ROS_INFO("获得参数 turtleName: %s", turtleName.c_str());
     ros::init(argc, argv, "turtle_pose_sub");
