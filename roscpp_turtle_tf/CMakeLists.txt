@@ -141,6 +141,7 @@ add_executable(turtle_pose_sub src/turtle_pose_sub.cpp)
 add_executable(look_two_frame src/look_two_frame.cpp)
 add_executable(turtle_tf_lis src/turtle_tf_lis.cpp)
 add_executable(two_turtle src/two_turtle/turtles.cpp)
+add_executable(create_turtle src/two_turtle/create_turtle.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -163,6 +164,9 @@ target_link_libraries(look_two_frame
   ${catkin_LIBRARIES}
 )
 target_link_libraries(two_turtle
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(create_turtle
   ${catkin_LIBRARIES}
 )
 #############

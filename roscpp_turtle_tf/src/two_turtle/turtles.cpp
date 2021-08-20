@@ -9,32 +9,8 @@
 
 int main(int argc, char *argv[])
 {
-    // if(argc != 4)
-    // {
-    //     ROS_ERROR("需要三个参数: theta x y");
-    //     return -1;
-    // }
-    // float theta = atoi(argv[1]);
-    // float x = atoi(argv[2]);
-    // float y = atoi(argv[3]);
-    // std::cout << "解析到参数如下: " << std::endl;
-    // ROS_INFO("x = %.2f, y = %.2f, theta = %.2f", 
-    //         x,
-    //         y,
-    //         theta    
-    //         );
-    
     ros::init(argc, argv, "turtles");
     ros::NodeHandle n;
-    // 创建一个服务
-    // ros::ServiceClient client = n.serviceClient<turtlesim::Spawn>("/spawn");
-    // 创建一个新海龟
-    // turtlesim::Spawn spawn;
-    // spawn.request.name = "turtle2";
-    // spawn.request.theta = theta;
-    // spawn.request.x = x;
-    // spawn.request.y = y;
-    // client.call(spawn); 
     // 监听 两个海龟 的坐标变化, 然后发布 vel_cmd消息
     ros::Publisher pub = n.advertise<geometry_msgs::Twist>("/turtle2/cmd_vel",100);
     tf2_ros::Buffer buffer;
@@ -48,6 +24,8 @@ int main(int argc, char *argv[])
             trans = buffer.lookupTransform("turtle2", "turtle1", ros::Time(0));
             double x = trans.transform.translation.x;
             double y = trans.transform.translation.y;
+            // 打印信息
+            ROS_INFO("d_x = %.2f, d_y = %.2f ", x, y);
             // 计算vel_cmd信息
             geometry_msgs::Twist twist;
             double turtle_angle = tan(y/x); 

@@ -37,9 +37,9 @@ void cb(const turtlesim::Pose::ConstPtr &ptr){
     trans.transform.rotation.w = qtn.getW();
     
     broadcaster.sendTransform(trans);
-    ROS_INFO("发送成功....\n 位置信息如下:\n x = %.2f,y = %.2f,z = 0",
-            trans.transform.translation.x,
-            trans.transform.translation.y);
+    // ROS_INFO("发送成功....\n 位置信息如下:\n x = %.2f,y = %.2f,z = 0",
+    //         trans.transform.translation.x,
+    //         trans.transform.translation.y);
 }
 
 int main(int argc, char *argv[])

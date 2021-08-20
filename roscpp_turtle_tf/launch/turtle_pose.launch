@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <launch>
-    <node pkg = "turtlesim" type = "turtlesim_node" name = "turtle1" /> 
+    <node pkg = "turtlesim" type = "turtlesim_node" name = "turtle1" required = "true" /> 
     <node pkg = "turtlesim" type = "turtle_teleop_key" name = "tepe" />
-    <!-- <node pkg = "roscpp_turtle_tf" type = "turtle_pose_sub"  name = "tf_pub" output = "screen" args = "turtle1" /> -->
-    <!-- <node pkg = "roscpp_turtle_tf" type = "turtle_pose_sub"  name = "tf_pub" output = "screen" ns = "turtle2" args = "turtle2" /> -->
+    <node pkg = "roscpp_turtle_tf" type = "create_turtle" name = "create" args = "turtle2 0 3 3" />
+    <node pkg = "roscpp_turtle_tf" type = "turtle_pose_sub"  name = "pub1" output = "screen" args = "turtle1" required = "true" />
+    <node pkg = "roscpp_turtle_tf" type = "turtle_pose_sub"  name = "pub2" output = "screen" args = "turtle2" required = "true" />
+    <node pkg = "roscpp_turtle_tf" type = "two_turtle"  name = "follow" output = "screen" />
 </launch>
