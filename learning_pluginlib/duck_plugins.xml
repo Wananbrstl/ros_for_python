@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<library path = "lib/libsimple_duck">
+    <class type = "learning_pluinlib::simple_duck" base_class_type = "learning_pluginlib::Duck" >
+        <description> a simple duck </description>
+    </class>
+</library>
+<library path = "lib/libhappy_duck">
+    <class type = "learning_pluinlib::happy_duck" base_class_type = "learning_pluginlib::Duck" >
+        <description> a happy duck </description>
+    </class>
+</library>
