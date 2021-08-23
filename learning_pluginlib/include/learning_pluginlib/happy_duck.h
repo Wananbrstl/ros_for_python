@@ -1,4 +1,6 @@
-#pragma once 
+#ifndef HAPPY_DUCK_H
+#define HAPPY_DUCK_H
+
 #include<iostream>
 #include"learning_pluginlib/Duck.h"
 
@@ -10,3 +12,5 @@ namespace learning_pluginlib{
         }
     };
 };
+
+#endif

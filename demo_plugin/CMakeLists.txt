@@ -134,8 +134,8 @@ add_library(polygon_plugins_lib
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/demo_plugin_node.cpp)
-
+add_executable(load_plugin src/load_plugin.cpp)
+add_executable(load_plugin2 src/load_plugin2.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -147,10 +147,12 @@ add_library(polygon_plugins_lib
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
-
+target_link_libraries(load_plugin
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(load_plugin2
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############

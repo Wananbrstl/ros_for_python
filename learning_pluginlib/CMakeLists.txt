@@ -122,10 +122,10 @@ include_directories(
 )
 
 ## Declare a C++ library
-add_library(simple_duck
+add_library(simple_duck_lib
   src/simple_duck.cpp
 )
-add_library(happy_duck
+add_library(happy_duck_lib
   src/happy_duck.cpp
 )
 ## Add cmake target dependencies of the library

@@ -1,4 +1,6 @@
-#pragma once 
+#ifndef SIMPLE_DUCKH
+#define SIMPLE_DUCKH
+
 #include<iostream>
 #include"learning_pluginlib/Duck.h"
 
@@ -12,3 +14,5 @@ namespace learning_pluginlib{
             }
     };
 };
+
+#endif

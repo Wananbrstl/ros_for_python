@@ -13,10 +13,10 @@ int main(int argc, char *argv[])
     {
         boost::shared_ptr<learning_pluginlib::Duck> green_duck = duck_loader.createInstance("learning_pluginlib::happy_duck");
         green_duck->initialize("GREEN");
-        boost::shared_ptr<learning_pluginlib::Duck> yellow_duck = duck_loader.createInstance("learning_pluginlib::simple_duck");
-        yellow_duck->initialize("YELLOW");
-        std::cout << green_duck->get_type() << std::endl;
-        std::cout << green_duck->get_type() << std::endl;
+        // boost::shared_ptr<learning_pluginlib::Duck> yellow_duck = duck_loader.createInstance("learning_pluginlib::simple_duck");
+        // yellow_duck->initialize("YELLOW");
+        // std::cout << green_duck->get_type() << std::endl;
+        // std::cout << green_duck->get_type() << std::endl;
     }
     catch (pluginlib::PluginlibException &ex)
     {
